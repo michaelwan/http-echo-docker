@@ -1,3 +1,3 @@
 #/bin/bash
 rm -f nohup.out
-nohup docker run -p 18007:8080 echo &
+nohup docker run --rm --name echo -p 3322:3322 echo &

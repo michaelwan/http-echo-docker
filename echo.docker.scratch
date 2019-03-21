@@ -1,5 +1,8 @@
-FROM alpine
-ADD echo /
-ADD ADPFedTest.html /
-RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
-CMD ["/echo"]
+FROM amd64/golang
+WORKDIR /go/src/app
+COPY . .
+
+RUN go get -d -v ./...
+RUN go install -v ./...
+
+CMD ["app"]

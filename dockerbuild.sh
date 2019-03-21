@@ -1,2 +1,2 @@
-go build echo.go
+#go build echo.go
 docker build -t echo -f echo.docker.scratch .
